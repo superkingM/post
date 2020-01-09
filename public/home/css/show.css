@@ -1,0 +1,133 @@
+.broadcast a {
+    font-size: 10px;
+    font-weight: normal;
+    line-height: 30px;
+}
+
+.broadcast a:hover {
+    background-color: #24ecc4;
+}
+.show_article{
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 10px;
+}
+.show_article h1 {
+    margin-top: 10px;
+    color: rgb(211, 0, 0);
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.time_f {
+    margin-top: 8px;
+    width: 610px;
+    height: 28px;
+}
+
+.time_f ul li {
+    float: left;
+    font-size: 11px;
+    color: #999999;
+}
+.time_f ul li a{
+    color: #999999;
+}
+.time_f ul li a:hover{
+    color: #ffffff;
+    background-color:  #24ecc4;
+}
+.show_content p{
+     font-size: 14px;
+    margin: 20px 0px;
+    line-height: 28px;
+    text-indent: 28px;
+    color: rgb(68,68,68);
+}
+.show_content p img{
+    padding: 2px;
+    border: 1px solid #ccc;
+    width: 500px;
+    margin: 20px 52px;
+}
+.show_content a{
+    color: #0a6999;
+}
+.show_content a:hover{
+    text-decoration: underline;
+}
+.show_content a{
+    display:inline ;
+}
+.show_content h1,h2,h3,h4,h5,h6{
+    color: rgb(211, 0, 0);
+    line-height: 24px;
+    font-size: 16px;
+    text-indent: 32px;
+}
+
+.show_content blockquote{
+    border-left: 3px solid #ccc;
+    color: rgb(211, 0, 0);
+}
+.show_content blockquote p{
+    color: rgb(211, 0, 0);
+    font-weight: bold;
+}
+.show_content del{
+    color: rgb(211, 0, 0);
+}
+.show_content em{
+    color: rgb(211, 0, 0);
+}
+
+.show_content ul,ol li{
+    font-size: 14px;
+    line-height: 28px;
+    text-indent: 28px;
+    font-weight: bold;
+    color: rgb(211, 0, 0);
+}
+.show_content code{
+    font-size: 14px;
+    line-height: 28px;
+    color: rgb(211, 0, 0);
+    font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+.updowen_on{
+    font-size: 12px;
+}
+.updowen_on a{
+    color: #37A;
+}
+.updowen_on a:hover{
+    color: #ffffff;
+    background-color:  #24ecc4;
+}
+.tuijian{
+    margin-top: 20px;
+
+}
+.tuijian ul li{
+    float: left;
+    overflow: hidden;
+    margin-top: 5px;
+    width: 148px;
+    height: 200px;
+    border-right: 1px #eee solid;
+}
+.tui_img img {
+    border: 1px solid #ccc;
+    padding: 2px;
+    display: block;
+    margin: 0 6px;
+}
+.r_title a{
+    font-size:12px;
+    color: #37A;
+    font-weight: normal;
+    display: inline;
+}
+.r_title a:hover{
+    color: #ffffff;
+    background-color:  #24ecc4;
+}
