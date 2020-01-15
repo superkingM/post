@@ -89,7 +89,7 @@
 <div class="clear"></div>
 <footer id="footer">
     <div class="link">
-        <a href="http://www.miibeian.gov.cn" target="blank">备案</a>
+        <a href="http://www.miibeian.gov.cn" target="blank">{{@$site->site}}</a>
         <br/>
 </footer>
 </body>

@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>网站信息</title>
-    <meta name="description" content="网站描述">
-    <meta name="keywords" content="网站关键词">
+    <title>{{@$site->title}}</title>
+    <meta name="description" content="{{@$site->desc}}">
+    <meta name="keywords" content="{{@$site->keywords}}">
     <link rel="shortcut icon" href="/home/img/iocn.jpg">
     <link rel="stylesheet" href="/home/css/main.css"/>
     <script type="text/javascript" src="/home/js/jquery.min.js"></script>
@@ -63,7 +63,7 @@
 <div class="clear"></div>
 <footer id="footer">
     <div class="link">
-        <a href="http://www.miibeian.gov.cn" target="blank">备案号</a>
+        <a href="http://www.miibeian.gov.cn" target="blank">{{@$site->site}}</a>
         <br/>
 </footer>
 </body>

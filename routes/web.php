@@ -18,5 +18,6 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
         Route::get('/','AdminController@index');
         Route::resource('category','CategoryController');//文章分类
         Route::resource('article','ArticleController');//文章
+        Route::resource('webset','WebsetController');//站点地图
     });
 });

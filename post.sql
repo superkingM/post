@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50724
 File Encoding         : 65001
 
-Date: 2020-01-09 17:09:14
+Date: 2020-01-15 16:14:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -121,6 +121,24 @@ INSERT INTO `migrations` VALUES ('1', '2020_01_07_074613_create_categories_table
 INSERT INTO `migrations` VALUES ('2', '2020_01_07_094932_create_articles_table', '2');
 INSERT INTO `migrations` VALUES ('3', '2020_01_08_010740_create_tags_table', '3');
 INSERT INTO `migrations` VALUES ('4', '2020_01_08_011051_create_article_tags_table', '4');
+
+-- ----------------------------
+-- Table structure for sites
+-- ----------------------------
+DROP TABLE IF EXISTS `sites`;
+CREATE TABLE `sites` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL COMMENT '标题',
+  `keywords` varchar(255) DEFAULT NULL COMMENT '网站关键词',
+  `desc` varchar(255) DEFAULT NULL COMMENT '网站描述',
+  `site` varchar(255) DEFAULT NULL COMMENT '备案信息',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of sites
+-- ----------------------------
+INSERT INTO `sites` VALUES ('1', '测试后台', '你好，世界', '这是一个测试网站', '备案信息');
 
 -- ----------------------------
 -- Table structure for tags

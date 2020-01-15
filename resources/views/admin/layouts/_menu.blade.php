@@ -16,8 +16,8 @@
             </a>
         </li>
         <li class="sidebar-nav-link">
-            <a href="/admin/ip" class="{{$_ip ?? ''}}">
-                <i class="am-icon-wpforms sidebar-nav-link-logo"></i>访问记录
+            <a href="/admin/webset" class="{{$_web ?? ''}}">
+                <i class="am-icon-wpforms sidebar-nav-link-logo"></i>站点管理
 
             </a>
         </li>
