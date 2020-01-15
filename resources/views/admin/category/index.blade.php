@@ -27,6 +27,8 @@
                                     <tr>
                                         <th>序号</th>
                                         <th>分类名称</th>
+                                        <th>排序</th>
+                                        <th>显示</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -36,6 +38,14 @@
                                         <tr class="gradeX" data-id="{{$category->id}}">
                                             <td>{{$category->id}}</td>
                                             <td class="name">{{$category->name}}</td>
+                                            <td><input class="sort" type="text" value="{{$category->sort}}"></td>
+                                            <td>
+                                            @if($category->status)
+                                            <span class="am-icon-check is_push" data-attr="{{$category->status}}"></span>
+                                            @else
+                                            <span class="am-icon-close is_push" data-attr="{{$category->status}}"></span>
+                                            @endif
+                                            </td>
                                             <td>
                                                 <div class="tpl-table-black-operation">
                                                     <a href="{{route('category.edit',$category->id)}}" class="edit"><i class="am-icon-pencil"></i>编辑</a>
@@ -46,13 +56,6 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                    {{--<td>--}}
-                                    {{--@if($category->is_push)--}}
-                                    {{--<span class="am-icon-check is_push" data-attr="{{$category->is_push}}"></span>--}}
-                                    {{--@else--}}
-                                    {{--<span class="am-icon-close is_push" data-attr="{{$category->is_push}}"></span>--}}
-                                    {{--@endif--}}
-                                    {{--</td>--}}
                                     </tbody>
                                 </table>
                             </div>
@@ -75,6 +78,48 @@
                     success:function () {
                         window.location.reload()
                     }
+                })
+            })
+            //排序
+            $('.sort').change(function () {
+                var id = $(this).parents('tr').data('id')
+                var sort = $(this).val()
+                $.ajax({
+                    type: 'post',
+                    url: '{{route('category.sort')}}',
+                    data: {id: id, sort: sort},
+                    success: function (data) {
+                        window.location.reload()
+                    }
+
+                })
+            })
+
+            //是否显示
+            $('.is_push').click(function () {
+                var id = $(this).parents('tr').data('id')
+                if ($(this).hasClass('am-icon-check')) {
+                    var is_push = 0
+                } else {
+                    var is_push = 1
+                }
+                var _this = $(this)
+                $.ajax({
+                    type: 'post',
+                    url: '{{route('category.status')}}',
+                    data: {id: id, status: is_push},
+                    success: function (data) {
+                      
+                        if (data.status == "1" && _this.hasClass('am-icon-check')) {
+                            _this.removeClass('am-icon-check')
+                            _this.addClass('am-icon-close')
+                        } else if (data.status == 0) {
+                            _this.removeClass('am-icon-close')
+                            _this.addClass('am-icon-check')
+                        }
+                        // console.log(data);
+                    }
+
                 })
             })
         })

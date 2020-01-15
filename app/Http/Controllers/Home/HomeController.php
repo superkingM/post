@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
         view()->share(
             [
-                'categories' => Category::all(),
+                'categories' => Category::where('status',1)->orderBy('sort','desc')->get(),
                 'site' => Site::getSite()
             ]
         );

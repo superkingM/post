@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -86,5 +87,33 @@ class CategoryController extends Controller
     {
         Category::destroy($id);
         return redirect(route('category.index'));
+    }
+    /**
+     * 排序
+     */
+
+    public function sort(Request $request){
+
+        $category = Category::find($request->id);
+        $category->sort = $request->sort;
+        $category->save();
+
+        return response()->json(['status'=>1,'message'=>'更新成功']);
+    }
+    /**
+     * 显示
+     */
+
+    public function status(Request $request){
+
+        $category = Category::find($request->id);
+        $category->status = $request->status;
+        $category->save();
+        $data = [
+            'status'=>!$request->status
+        ];
+
+
+        return response()->json($data);
     }
 }
