@@ -70,7 +70,10 @@ class ArticleController extends Controller
         'image'=>$request->image,
         'content'=>$request->content,
         'description'=>$request->description,
-        'markdown_html_code'=>$request->markdown_html_code
+        'markdown_html_code'=>$request->markdown_html_code,
+        'status'=>1,
+        'view'=>1,
+        'sort'=>1
     ];
     $article = Article::create($data);
     $article->tags()->sync($tag_ids);

@@ -42,6 +42,9 @@
             <div class="show_content">
                 {!!   $article->markdown_html_code !!}
             </div>
+            <div id="tag">
+                <span>标签：</span> @foreach($article->tags as $tag) <a href="{{route('tag.show',$tag->id)}}" class="tags" style="color: #00c4ff;">{{$tag->name}}</a> @endforeach
+            </div>
         </div>
         <div class="updown">@if($articleup->id == $article->id)
                 <div class="updowen_on" style="float:left">« « <a href="{{route('home.index')}}"

@@ -24,5 +24,6 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
         Route::post('article/status','ArticleController@status')->name('article.status');//文章状态
         Route::resource('article','ArticleController');//文章
         Route::resource('webset','WebsetController');//站点地图
+        Route::resource('tag','TagController');//标签
     });
 });
