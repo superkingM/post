@@ -21,4 +21,11 @@
 
             </a>
         </li>
+
+        <li class="sidebar-nav-link">
+            <a href="/admin/ip" class="{{$_ip ?? ''}}">
+                <i class="am-icon-wpforms sidebar-nav-link-logo"></i>访问日志
+
+            </a>
+        </li>
     </ul>

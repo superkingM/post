@@ -2,7 +2,7 @@
 
 
 //前端
-Route::namespace('Home')->group(function (){
+Route::namespace('Home')->middleware('iplog')->group(function (){
     Route::get('/','HomeController@index')->name('home.index');//首页
     Route::get('category/{category_id}','HomeController@category')->name('home.category');//分类页
     Route::get('article/{id}','HomeController@show')->name('home.show');//详细页
@@ -25,5 +25,6 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
         Route::resource('article','ArticleController');//文章
         Route::resource('webset','WebsetController');//站点地图
         Route::resource('tag','TagController');//标签
+        Route::resource('ip','IpController');//访问日志
     });
 });
