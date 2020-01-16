@@ -19,6 +19,9 @@ Route::prefix('admin')->namespace('Admin')->group(function (){
         Route::post('category/sort','CategoryController@sort')->name('category.sort');//排序
         Route::post('category/status','CategoryController@status')->name('category.status');//菜单显示
         Route::resource('category','CategoryController');//文章分类
+        Route::post('article/sort','ArticleController@sort')->name('article.sort');//文章排序
+        Route::post('article/view','ArticleController@view')->name('article.view');//文章浏览量
+        Route::post('article/status','ArticleController@status')->name('article.status');//文章状态
         Route::resource('article','ArticleController');//文章
         Route::resource('webset','WebsetController');//站点地图
     });

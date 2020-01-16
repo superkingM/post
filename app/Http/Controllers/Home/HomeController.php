@@ -23,7 +23,7 @@ class HomeController extends Controller
     //首页
     public function index()
     {
-        $articles = Article::with('category', 'tags')->orderBy('id', 'desc')->paginate(12);
+        $articles = Article::with('category', 'tags')->where('status',1)->orderBy('view', 'desc')->paginate(12);
         return view('home.index', compact('articles'));
     }
 
@@ -32,7 +32,7 @@ class HomeController extends Controller
     public function category($id)
     {
 
-        $articles = Article::where('category_id', $id)->orderBy('id', 'desc')->paginate(12);
+        $articles = Article::where('category_id', $id)->where('status',1)->orderBy('id', 'desc')->paginate(12);
 
         return view('home.category', compact('articles'));
     }
@@ -41,22 +41,24 @@ class HomeController extends Controller
 
     public function show($id)
     {
-        $article = Article::with('category', 'tags')->find($id);
+        $article = Article::with('category', 'tags')->where('status',1)->find($id);
+        ++$article->view;
+        $article->save();
         //上一篇
-        $upid = Article::where('id', '<', $id)->max('id');
+        $upid = Article::where('id', '<', $id)->where('status',1)->max('id');
         if (empty($upid)) {
             $upid = $id;
         }
         $articleup = Article::find($upid);
         //下一篇
-        $downid = Article::where('id', '>', $id)->min('id');
+        $downid = Article::where('id', '>', $id)->where('status',1)->min('id');
         if (empty($downid)) {
             $downid = $id;
         }
         $articledown = Article::find($downid);
         //按照本文分类推荐8条
 //        $post2 = Article::where('category_id', $category_id)->orderBy(\DB::raw('RAND()'))->take(8)->get();
-        $post2 = Article::orderBy(\DB::raw('RAND()'))->take(8)->get(); //如果此分类没有8条随机推荐8条
+        $post2 = Article::where('status',1)->orderBy(\DB::raw('RAND()'))->take(8)->get(); //如果此分类没有8条随机推荐8条
         return view('home.show', compact('article', 'articledown', 'articleup', 'post2'));
     }
 }

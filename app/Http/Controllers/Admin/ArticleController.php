@@ -152,6 +152,34 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Article::destroy($id);
+    }
+    /**
+     * 排序
+     */
+    public function sort(Request $request){
+        $article =Article::find($request->id);
+        $article->sort = $request->sort;
+        $article->save();
+        return response()->json(['status'=>1]);
+    }
+    /**
+     * 浏览量
+     */
+
+    public  function view(Request $request){
+        $article = Article::find($request->id);
+        $article->view = $request->view;
+        $article->save();
+        return response()->json(['status'=>1]);
+    }
+    /**
+     * 文章状态
+     */
+    public function status(Request $request){
+        $article = Article::find($request->id);
+        $article->status =$request->status;
+        $article->save();
+        return response()->json(['status'=>!$request->status]);
     }
 }

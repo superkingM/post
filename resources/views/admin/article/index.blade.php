@@ -55,7 +55,7 @@
                                         <th>所属分类</th>
                                         <th>浏览量</th>
                                         {{--<th>推荐</th>--}}
-                                        {{--<th>展示</th>--}}
+                                        <th>展示</th>
                                         <th>排序</th>
                                         <th>操作</th>
                                     </tr>
@@ -74,11 +74,11 @@
                                                 {{--@else--}}
                                                     {{--<span class="am-icon-close is_push"></span>--}}
                                                 {{--@endif</td>--}}
-                                            {{--<td>@if($article->is_show)--}}
-                                                    {{--<span class="am-icon-check is_show"></span>--}}
-                                                {{--@else--}}
-                                                    {{--<span class="am-icon-close is_show"></span>--}}
-                                                {{--@endif</td>--}}
+                                            <td>@if($article->status)
+                                                    <span class="am-icon-check is_show"></span>
+                                                @else
+                                                    <span class="am-icon-close is_show"></span>
+                                                @endif</td>
                                             <td><input class="sort" type="text" value="{{$article->sort}}"></td>
                                             {{--<td>--}}
                                             {{--@if($category->is_push)--}}
@@ -166,9 +166,9 @@
                 }
                 var _this = $(this)
                 $.ajax({
-                    type: 'patch',
-                    url: '/admin/artcle/is_show',
-                    data: {id: id, is_show: is_show},
+                    type: 'post',
+                    url: '{{route('article.status')}}',
+                    data: {id: id, status: is_show},
                     success: function (data) {
                         if (data.status == 1 && _this.hasClass('am-icon-check')) {
                             _this.removeClass('am-icon-check')
@@ -187,8 +187,8 @@
                 var id = $(this).parents('tr').data('id')
                 var view = $(this).val()
                 $.ajax({
-                    type: 'patch',
-                    url: '/admin/artcle/view',
+                    type: 'post',
+                    url: '{{route('article.view')}}',
                     data: {id: id, view: view},
                     success: function (data) {
                         window.location.reload()
@@ -202,8 +202,8 @@
                 var id = $(this).parents('tr').data('id')
                 var sort = $(this).val()
                 $.ajax({
-                    type: 'patch',
-                    url: '/admin/artcle/sort',
+                    type: 'post',
+                    url: '{{route('article.sort')}}',
                     data: {id: id, sort: sort},
                     success: function (data) {
                         window.location.reload()
