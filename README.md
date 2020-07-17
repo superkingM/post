@@ -13,6 +13,6 @@
 - 模型关联关系
 - 辅助函数
 
-如果你是学习laravel的新手，比较大的项目难以看懂，那么这个项目非常的适合新手laravel入门，有什么问题可以加QQ群427336263进行咨询
+如果你是学习laravel的新手，比较大的项目难以看懂，那么这个项目非常的适合新手laravel入门
 
 本项目各个功能讲解地址：[laravel6急速入门开发](https://www.kancloud.cn/kingsurper/noobolaravel)
